@@ -23,12 +23,12 @@ A Flask-based productivity web app built while learning web development, featuri
 - File search functionality
 - Task statistics (total, completed, pending)
 
+### 🎨 UI
+- Clean and responsive interface
+
 ## 🌐 Live Demo
 
 🔗 [Click here to open DevAssist](https://devassist-qyr4.onrender.com)
-
-### 🎨 UI
-- Clean and responsive interface
 
 ## 📸 Screenshots
 
