@@ -1,0 +1,17 @@
+[
+    {
+        "task": "study dsa",
+        "deadline": "2026-04-02",
+        "completed": true
+    },
+    {
+        "task": "To go gym",
+        "deadline": "2026-04-03",
+        "completed": true
+    },
+    {
+        "task": "Complete assignment",
+        "deadline": "2026-04-04",
+        "completed": true
+    }
+]

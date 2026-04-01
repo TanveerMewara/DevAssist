@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevAssist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🚀 DevAssist</h1>
+
+    <!-- 📊 STATS -->
+    <h3>Total: {{ total }} | ✔ Completed: {{ completed }} | ✘ Pending: {{ pending }}</h3>
+
+    <!-- 🔍 SEARCH -->
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search tasks..." value="{{ search_query or '' }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>➕ Add Task</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="text" name="task" placeholder="Enter task" required>
+        <input type="date" name="deadline" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <h2>📋 Tasks</h2>
+
+    {% if tasks %}
+        <ul>
+            {% for t in tasks %}
+                <li class="{% if t.overdue %}overdue{% endif %}">
+                    <span>
+                        {{ t.task }} | {{ t.deadline }} |
+
+                        {% if t.completed %}
+                            <span class="completed">✔</span>
+                        {% else %}
+                            <span class="pending">✘</span>
+                        {% endif %}
+
+                        {% if t.overdue %}
+                            <span style="color:red;">⚠ Overdue</span>
+                        {% endif %}
+                    </span>
+
+                    <span>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="action" value="complete">
+                            <input type="hidden" name="index" value="{{ loop.index }}">
+                            <button type="submit">✔</button>
+                        </form>
+
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="index" value="{{ loop.index }}">
+                            <button type="submit">❌</button>
+                        </form>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks found.</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
