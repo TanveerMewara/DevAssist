@@ -24,5 +24,4 @@ A Flask-based productivity web app built while learning web development, featuri
 - Task statistics (total, completed, pending)
 
 ### 🎨 UI
-- Clean and responsive interface
-- 
+- Clean and responsive interface 
